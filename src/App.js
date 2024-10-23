@@ -72,7 +72,10 @@ const App = () => {
 
 	return (
 		<Container fluid>
-			<h1 className='my-4 fs-3'>XML Duplicate finder</h1>
+			<div className='d-flex justify-content-between shadow-sm p-3 mb-5'>
+				<p className='my-4 fs-3'>A-E-MS LLC</p>
+				<p className='my-4 fs-3'>XML Duplicate finder</p>
+			</div>
 			<div className='form-group'>
 				<div className='d-flex'>
 					<Form.Control type='file' onChange={handleFileChange} />
@@ -97,9 +100,13 @@ const App = () => {
 				</div>
 			)}
 
+			{duplicates.length <= 0 && (
+				<p className='text-center text-success fs-3 mt-5'>No Duplicates!</p>
+			)}
+
 			{!loading && duplicates.length > 0 && (
 				<>
-					<h3 className='my-4'>Duplicate Codes</h3>
+					<h3 className='my-4 text-danger'>Duplicate Codes</h3>
 					<Table responsive bordered>
 						<thead>
 							<tr>
